@@ -13,14 +13,14 @@ export const App: React.FC = () => {
   const start = (currentPage - 1) * perPage;
   const end = start + perPage;
   const visibleItems = items.slice(start, end);
+  const pageEnd = Math.min(end, items.length);
 
   return (
     <div className="container">
       <h1>Items with Pagination</h1>
 
       <p className="lead" data-cy="info">
-        Page {currentPage}
-        (items {start + 1} - {Math.min(end, items.length)} of {items.length})
+        Page {currentPage} (items {start + 1} - {pageEnd} of {items.length})
       </p>
 
       <div className="form-group row">
